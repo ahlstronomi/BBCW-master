@@ -38,19 +38,19 @@ function showImages() {
 
           let textNode = document.createTextNode(json[i].mediaTitle);
 
-          li.appendChild(figure);
-          ul.appendChild(li);
 
-          figure.appendChild(link);
 
-          link.setAttribute("href", "img/original/" + json[i].mediaUrl);
-          link.appendChild(img);
-
+          // Set attributes
           img.setAttribute("src", "img/thumbs/" + json[i].mediaThumb);
+          link.setAttribute("href", "img/original/" + json[i].mediaUrl);
 
-          figure.appendChild(figcaption);
-
+          // Nest elements
           figcaption.appendChild(h3);
+          li.appendChild(figure);
+          figure.appendChild(link);
+          link.appendChild(img);
+          figure.appendChild(figcaption);
+          ul.appendChild(li);
           h3.appendChild(textNode);
 
         }
